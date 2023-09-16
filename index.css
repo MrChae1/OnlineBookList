@@ -4,4 +4,97 @@
 body{
     margin: 0;
     font-family: sans-serif;
+    color: #fff;
 }
+.container{
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    background: rgb(0,5,36);
+    background: linear-gradient(90deg, rgba(0,5,36,1) 0%, rgba(9,17,121,1) 54%, rgba(0,212,255,1) 100%);
+    display: grid;
+    grid-template: .5fr 3fr / 2.5fr 1fr;
+    gap: .5rem;
+}
+header{
+    grid-area: 1 / 1 / 2 / 3;
+    text-align: center;
+}
+main{
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: transparent;
+    border: 5px solid rgb(42, 42, 99);
+    border-radius: 20px;
+}
+section{
+    grid-area: 2/2/3/3;
+    background-color: transparent;
+    border: 5px solid rgb(42, 42, 99);
+    border-radius: 20px;
+    padding: .5rem;
+    text-align: center;
+    display: grid;
+    grid-template-rows: .2fr 1.5fr 2.5fr 1.2fr;
+}
+section h2{
+    margin: .5rem 0;
+    font-size: medium;
+    padding: 1rem;
+    
+}
+section input{
+    padding: 1rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    margin-bottom: .5rem;
+    color: #fff;
+}
+section input:hover{
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.30);
+    border-radius: 10px;
+    border: 2px solid #fff; 
+    
+}
+section input:focus{
+    border: 2px solid #89bbf1;
+    outline: none;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.30);
+    border-radius: 10px;
+}
+section > .for-details{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 0 1rem;
+}
+section > .for-details >textarea{
+    border-radius: 10px;
+    background-color: transparent;
+    padding: .5rem;
+    color: #fff;
+}
+section > .for-details > label{
+    font-weight: bold;
+}
+section .for-button{
+    display: flex;
+    flex-direction: column;
+    row-gap: .7rem;
+    padding: 0 1rem;
+}
+section .for-button > button{
+    padding: .5rem;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+
+}
+section .for-button > button:hover{
+    background-color: #89bbf1;
+    /* border: transparent; */
+    transition: 1s;
+}
+
+
