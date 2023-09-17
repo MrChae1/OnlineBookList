@@ -7,6 +7,8 @@ body{
     color: #fff;
 }
 .container{
+    min-width: 100vw;
+    min-height: 100vh;
     width: 100vw;
     height: 100vh;
     padding: 1rem;
@@ -25,6 +27,51 @@ main{
     background-color: transparent;
     border: 5px solid rgb(42, 42, 99);
     border-radius: 20px;
+    display: grid;
+    grid-template-rows: .5fr 3.5fr;;
+    padding: .5rem;
+}
+main > h2{
+    margin: .5rem 0;
+    text-align: center;
+}
+main > .Book-Container{
+    border: 2px solid #fff;
+    border-radius: 10px;
+    display: grid;
+    padding: .5rem;
+    gap: .5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, .5fr));
+    grid-template-rows: repeat(auto-fill, minmax(190px, .5fr));
+}
+main > .Book-Container > .card-holder{
+    border: 2px solid #fff;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+} 
+main > .Book-Container > .card-holder > h3{
+    margin: 0;
+    text-align: center;
+}
+main > .Book-Container > .card-holder > p{
+    margin: 0;
+}
+main > .Book-Container > .card-holder > button{
+    padding: .5rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+main > .Book-Container > .card-holder > button:hover{
+    background-color: #89bbf1;
+    border: transparent;
+    transition: 2s;
+    color: #000;
 }
 section{
     grid-area: 2/2/3/3;
@@ -53,7 +100,8 @@ section input{
 section input:hover{
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.30);
     border-radius: 10px;
-    border: 2px solid #fff; 
+    border: 2px solid #fff;
+    transition: 1s; 
     
 }
 section input:focus{
@@ -68,7 +116,7 @@ section > .for-details{
     gap: .5rem;
     padding: 0 1rem;
 }
-section > .for-details >textarea{
+section > .for-details > textarea{
     border-radius: 10px;
     background-color: transparent;
     padding: .5rem;
@@ -94,7 +142,8 @@ section .for-button > button{
 section .for-button > button:hover{
     background-color: #89bbf1;
     /* border: transparent; */
-    transition: 1s;
+    transition: 2s;
+    color: #000;
 }
 
 
