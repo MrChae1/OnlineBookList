@@ -41,8 +41,7 @@ main > .Book-Container{
     display: grid;
     padding: .5rem;
     gap: .5rem;
-    grid-template-columns: repeat(auto-fill, minmax(250px, .5fr));
-    grid-template-rows: repeat(auto-fill, minmax(190px, .5fr));
+    grid-template: repeat(auto-fit, minmax(190px, .5fr)) / repeat(auto-fill, minmax(200px, .5fr)); 
 }
 main > .Book-Container > .card-holder{
     border: 2px solid #fff;
@@ -50,7 +49,8 @@ main > .Book-Container > .card-holder{
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1rem;
+    text-align: justify;
 } 
 main > .Book-Container > .card-holder > h3{
     margin: 0;
@@ -81,7 +81,8 @@ section{
     padding: .5rem;
     text-align: center;
     display: grid;
-    grid-template-rows: .2fr 1.5fr 2.5fr 1.2fr;
+    position: relative;
+    grid-template-rows: .2fr 1.5fr 2.5fr 1fr;
 }
 section h2{
     margin: .5rem 0;
@@ -145,5 +146,25 @@ section .for-button > button:hover{
     transition: 2s;
     color: #000;
 }
+section > .validation{
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    z-index: 1;
+    top: 120px;
+    border: 2px solid red;
+    border-radius: 10px;
+    margin: 2rem;
+    padding: 1rem;
+    background-color: #fff;
+    color: #000;
+}
+section > .validation > button{
+    padding: .5rem;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+}
+
 
 
