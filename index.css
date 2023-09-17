@@ -50,7 +50,7 @@ main > .Book-Container > .card-holder{
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 1.2rem;
 } 
 main > .Book-Container > .card-holder > h3{
     margin: 0;
