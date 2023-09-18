@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="index.css">
+        <script src="https://kit.fontawesome.com/da29e3cc4f.js" crossorigin="anonymous"></script>
         <script src="script.js" defer></script>
         <title>Book ReadList</title>
     </head>
@@ -13,16 +14,10 @@
                 <h1>Online BookList</h1>
             </header>
             <main>
-                <h2>Book List Added</h2>
-                <div class="Book-Container">
-                    <!-- <div class="card-holder">
-                        <h3>Bleach</h3>
-                        <p>author: Tite Kubo</p>
-                        <p>Sypnosis: A boy who became Ghost shinigami</p>
-                        <button>Delete</button>
-                    </div> -->
-                </div>
-            </main>
+                <button id="show-section">Add Book <i class="fa-solid fa-plus"></i></Button> 
+                <div class="Book-Container"></div>
+                
+            </main> 
             <section>
                 <h2>Recommend a Book</h2>
                 <div class="for-input-are">
@@ -40,9 +35,14 @@
                     <textarea name="text-area" id="Book-details" cols="30" rows="10"></textarea>
                 </div>
                 <div class="for-button">
-                    <button id="add-btn">Add Book</button>
+                    <button class="add" id="add-btn">Add Book</button>
+                    <button class="exit" id="exit-add">Exit</button>
                 </div>
             </section>
-        </div>     
+        </div>  
+   
     </body>
 </html>
+
+
+
