@@ -56,12 +56,14 @@ main > .Book-Container{
 }
 main > .Book-Container > .card-holder{
     border: 2px solid #fff;
-    padding: .5rem 1rem;
+    padding: 1rem 1rem;
     border-radius: 10px;
-    display: flex;
+    display: grid;
     flex-direction: column;
     gap: 1rem;
     text-align: justify;
+    text-align: center;
+    grid-template-rows: 1fr 1fr 200px;
 } 
 main > .Book-Container > .card-holder > h3{
     margin: 0;
@@ -70,15 +72,21 @@ main > .Book-Container > .card-holder > h3{
 main > .Book-Container > .card-holder > p{
     margin: 0;
 }
-main > .Book-Container > .card-holder > button{
+main > .Book-Container > .card-holder > .main-button{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+main > .Book-Container > .card-holder > .main-button > button{
     padding: .5rem;
     font-weight: bold;
     color: #fff;
     background-color: transparent;
     border: 2px solid #fff;
     border-radius: 10px;
+    margin-top: 5px;
 }
-main > .Book-Container > .card-holder > button:hover{
+main > .Book-Container > .card-holder > .main-button > button:hover{
     background-color: #89bbf1;
     border: transparent;
     transition: 2s;
@@ -186,6 +194,7 @@ section > .validation > button{
     border: none;
     border-radius: 10px;
 }
+
 
 
 
