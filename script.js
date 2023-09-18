@@ -5,8 +5,23 @@ const addBtn = document.getElementById('add-btn');
 const tellSomething = document.getElementById('Book-details');
 let bookContainer = document.querySelector('.Book-Container');
 const valid = document.querySelector('.validation');
+let showSection = document.getElementById('show-section');
+const mainContainer = document.getElementById('main-tag');
+const sectionpanel = document.getElementById('for-section');
+const sectionexiBtn = document.getElementById('exit-add');
 
 
+function clearInput(){
+    tellSomething.value = '';
+    authorName.value = ''
+    bookName.value = "";
+    sectionpanel.style.display = 'none';
+    mainContainer.style.display = 'flex';
+}
+showSection.addEventListener('click',()=>{
+    sectionpanel.style.display = 'grid';
+    mainContainer.style.display = 'none';
+});
 addBtn.addEventListener('click', () =>{
     bookContainer.textContent = ``;
     let Bookname = bookName.value;
@@ -14,13 +29,10 @@ addBtn.addEventListener('click', () =>{
     let Tellsomething = tellSomething.value;
     let indexCount = myLibrary.length;
     validate(Bookname, Authorname,Tellsomething, indexCount );
-    tellSomething.value = '';
-    authorName.value = ''
-    bookName.value = "";
-
-    // let book = new Book(Bookname, Authorname, Tellsomething)
-    // myLibrary.push(book);
-    // addBookToLibrary();
+    
+});
+sectionexiBtn.addEventListener('click', () =>{
+    clearInput();
 });
 
 function validate(Bookname, Authorname, Tellsomething, indexCount){
@@ -33,6 +45,7 @@ function validate(Bookname, Authorname, Tellsomething, indexCount){
         addBookToLibrary(myLibrary);
     }
     else{
+        clearInput();
         let book = new Book(Bookname, Authorname, Tellsomething, indexCount);
         myLibrary.push(book);
         addBookToLibrary(myLibrary);
@@ -76,10 +89,15 @@ function addBookToLibrary(allLibrary) {
         CardContainer.setAttribute("data-id", library.indexCount);
         let Title = document.createElement("h3");
         Title.textContent = library.bookName;
+        let mainButtonContainer = document.createElement("div");
+        mainButtonContainer.classList.add('main-button');
         let Author = document.createElement("p");
         Author.textContent = `Author: ${library.authorName}`;
-        let Sypnosis = document.createElement("p");
-        Sypnosis.textContent = `Sypnosis: ${library.tellSomething}`;
+        let Sypnosis = document.createElement("button");
+        Sypnosis.textContent = `View Sypnosis`;
+        Sypnosis.addEventListener('mouseover', () =>{
+            showSypnosis(library.indexCount);
+        });
         let delBtn = document.createElement("button");
         delBtn.textContent = `Delete`;
         delBtn.addEventListener('click',() =>{
@@ -87,8 +105,9 @@ function addBookToLibrary(allLibrary) {
         })
         CardContainer.appendChild(Title);
         CardContainer.appendChild(Author);
-        CardContainer.appendChild(Sypnosis);
-        CardContainer.appendChild(delBtn);
+        mainButtonContainer.appendChild(Sypnosis);
+        mainButtonContainer.appendChild(delBtn);
+        CardContainer.appendChild(mainButtonContainer);
         bookContainer.appendChild(CardContainer); 
     } 
 }
@@ -103,6 +122,10 @@ function removeBook(indexRemove){
   });
         }
     }
+}
+function showSypnosis(indexSyp){
+   const forSyp = myLibrary.filter(miLibrary => miLibrary.indexCount === indexSyp);
+    
 }
 
 
