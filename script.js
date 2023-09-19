@@ -95,8 +95,8 @@ function addBookToLibrary(allLibrary) {
         Author.textContent = `Author: ${library.authorName}`;
         let Sypnosis = document.createElement("button");
         Sypnosis.textContent = `View Sypnosis`;
-        Sypnosis.addEventListener('mouseover', () =>{
-            showSypnosis(library.indexCount);
+        Sypnosis.addEventListener("click", () =>{
+            showSypnosis(library.indexCount, CardContainer);
         });
         let delBtn = document.createElement("button");
         delBtn.textContent = `Delete`;
@@ -123,9 +123,24 @@ function removeBook(indexRemove){
         }
     }
 }
-function showSypnosis(indexSyp){
-   const forSyp = myLibrary.filter(miLibrary => miLibrary.indexCount === indexSyp);
-    
+function showSypnosis(indexSyp, contain){
+   const forSyp = myLibrary.filter(miLibrary => miLibrary.indexCount === indexSyp).map(miLibrary =>{
+    return miLibrary.tellSomething
+   });
+  
+//    let changeConBG = document.querySelector(`[data-id="${indexSyp}"]`);
+   let showSyp = document.createElement("div");
+   showSyp.classList.add('forsypnosisonly')
+   let newP = document.createElement('p')
+   const newButton = document.createElement('button');
+   newButton.textContent = 'Close';
+   newButton.addEventListener('click', () =>{
+        showSyp.style.display = 'none';
+   });
+   newP.textContent = `${forSyp[0]}`
+   showSyp.appendChild(newP);
+   showSyp.appendChild(newButton);
+   contain.appendChild(showSyp);
 }
 
 
