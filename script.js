@@ -12,9 +12,8 @@ const sectionexiBtn = document.getElementById('exit-add');
 
 
 function clearInput(){
-    tellSomething.value = '';
-    authorName.value = ''
-    bookName.value = "";
+    const removeValue = [tellSomething, authorName,bookName];
+    removeValue.forEach(RValue => RValue.value = '');
     sectionpanel.style.display = 'none';
     mainContainer.style.display = 'flex';
 }
@@ -38,10 +37,8 @@ sectionexiBtn.addEventListener('click', () =>{
 function validate(Bookname, Authorname, Tellsomething, indexCount){
     if(Bookname === '' || Authorname === '' || Tellsomething === ''){
         valid.style.display = 'flex';
-        bookName.disabled = true;
-        authorName.disabled = true;
-        tellSomething.disabled = true;
-        addBtn.disabled = true;
+        const elementsToDisable = [bookName, authorName, tellSomething, addBtn, sectionexiBtn];
+        elementsToDisable.forEach(element => element.disabled = true);
         addBookToLibrary(myLibrary);
     }
     else{
@@ -70,10 +67,8 @@ function afterRemove(){
 }
 const exitBtn = document.getElementById('validation-exit').addEventListener('click', () =>{
     valid.style.display = 'none';
-    bookName.disabled = false;
-    authorName.disabled = false;
-    tellSomething.disabled = false;
-    addBtn.disabled = false;
+    const elementsToDisable = [bookName, authorName, tellSomething, addBtn, sectionexiBtn];
+        elementsToDisable.forEach(element => element.disabled = false);
 });
 
 function Book(bookName,authorName,tellSomething, indexCount) {
@@ -95,51 +90,32 @@ function addBookToLibrary(allLibrary) {
         Author.textContent = `Author: ${library.authorName}`;
         let Sypnosis = document.createElement("button");
         Sypnosis.textContent = `View Sypnosis`;
-        Sypnosis.addEventListener("click", () =>{
-            showSypnosis(library.indexCount, CardContainer);
-        });
+        Sypnosis.addEventListener("click", () => showSypnosis(library.indexCount, CardContainer));
         let delBtn = document.createElement("button");
         delBtn.textContent = `Delete`;
-        delBtn.addEventListener('click',() =>{
-            removeBook(library.indexCount);
-        })
-        CardContainer.appendChild(Title);
-        CardContainer.appendChild(Author);
-        mainButtonContainer.appendChild(Sypnosis);
-        mainButtonContainer.appendChild(delBtn);
-        CardContainer.appendChild(mainButtonContainer);
+        delBtn.addEventListener('click', () => removeBook(library.indexCount) );
+        //Appending part
+        CardContainer.append(Title, Author, mainButtonContainer);
+        mainButtonContainer.append(Sypnosis, delBtn);    
         bookContainer.appendChild(CardContainer); 
     } 
 }
 function removeBook(indexRemove){
-    for(const removeBook of myLibrary){
-        if(removeBook.indexCount === indexRemove){
             myLibrary.splice(indexRemove, 1);
-            const elementsToRemove = document.querySelectorAll(`[data-id="${indexRemove}"]`); // Replace "2" with the specific value you want to match
-            elementsToRemove.forEach(function (element) {
-            element.remove();
+            const elementsToRemove = document.querySelectorAll(`[data-id="${indexRemove}"]`);
+            elementsToRemove.forEach(element => element.remove());
             afterRemove();
-  });
-        }
-    }
 }
 function showSypnosis(indexSyp, contain){
-   const forSyp = myLibrary.filter(miLibrary => miLibrary.indexCount === indexSyp).map(miLibrary =>{
-    return miLibrary.tellSomething
-   });
-  
-//    let changeConBG = document.querySelector(`[data-id="${indexSyp}"]`);
+   const forSyp = myLibrary.filter(miLibrary => miLibrary.indexCount === indexSyp).map(miLibrary => miLibrary.tellSomething);  
    let showSyp = document.createElement("div");
    showSyp.classList.add('forsypnosisonly')
    let newP = document.createElement('p')
    const newButton = document.createElement('button');
    newButton.textContent = 'Close';
-   newButton.addEventListener('click', () =>{
-        showSyp.style.display = 'none';
-   });
-   newP.textContent = `${forSyp[0]}`
-   showSyp.appendChild(newP);
-   showSyp.appendChild(newButton);
+   newButton.addEventListener('click', () => showSyp.style.display = 'none');
+   newP.textContent = `${forSyp[0]}`;
+   showSyp.append(newP, newButton);
    contain.appendChild(showSyp);
 }
 
