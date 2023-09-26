@@ -10,7 +10,6 @@ const mainContainer = document.getElementById('main-tag');
 const sectionpanel = document.getElementById('for-section');
 const sectionexiBtn = document.getElementById('exit-add');
 
-
 function clearInput(){
     const removeValue = [tellSomething, authorName,bookName];
     removeValue.forEach(RValue => RValue.value = '');
