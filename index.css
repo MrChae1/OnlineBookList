@@ -101,8 +101,8 @@ section{
     text-align: center;
     display: grid;
     /* top: 121px;
-    left: 31%;
-    position: absolute; */
+    left: 31%;*/
+    position: relative; 
     grid-template-rows: .2fr 1.5fr 2.5fr 1fr;
 }
 section h2{
@@ -178,7 +178,7 @@ section > .validation{
     position: absolute;
     flex-direction: column;
     z-index: 1;
-    top: 120px;
+    top: 62px;
     border: 2px solid red;
     border-radius: 10px;
     margin: 2rem;
@@ -219,6 +219,7 @@ section > .validation > button{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* position: relative; */
 }
 
 
